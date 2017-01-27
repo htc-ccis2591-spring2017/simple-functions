@@ -1,7 +1,7 @@
 /* CCIS 2591-JavaScript, Spring 2017
  * Cheryl Davis
  *
- * Version 1, before correction of ES5 to ES6
+ * Version 2, code updated to ES6, no more var
 
 /*
  * Problem 1
@@ -59,7 +59,7 @@ function calculate(number1, number2, operator, result){
         return result = number1 / number2;
     } else if(operator == "%"){
         return result = (number1/100) * number2;
-    }   
+    }
 }
 
 
@@ -95,12 +95,12 @@ document.getElementById("submit4").addEventListener("click", function(){
 
 
     // Get the input value from the form & log the value
-    var wordString = document.getElementById("string").value;
+    let wordString = document.getElementById("string").value;
     console.log( "String = " + wordString );
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
-    var stringLength = calculateStringLength(wordString);
+    let stringLength = calculateStringLength(wordString);
     console.log( "String Length = " + stringLength );
 
     // Use the variable to set the output form field value & log the result to the console
@@ -131,11 +131,11 @@ document.getElementById("submit1").addEventListener("click", function(){
     console.log( "Calculating Moon Weight" );
 
     // Get input value
-    var earthWeight = document.getElementById("weight").value;
+    let earthWeight = document.getElementById("weight").value;
     console.log( "Earth Weight = " + earthWeight );
 
     // Write output value
-    var moonWeight = calculateMoonWeight(earthWeight);
+    let moonWeight = calculateMoonWeight(earthWeight);
     console.log( "Moon Weight = " + moonWeight );
     document.getElementById("moon-weight").value = moonWeight;
 });
@@ -153,11 +153,11 @@ document.getElementById("submit2").addEventListener("click", function(){
     console.log( "Calculating Dog's Human Age" );
 
     // Get input value
-    var dogAge = document.getElementById("dog-age").value;
+    let dogAge = document.getElementById("dog-age").value;
     console.log( "Dog's Age = " + dogAge );
 
     // Write output value
-    var humanAge = calculateDogHumanAge(dogAge);
+    let humanAge = calculateDogHumanAge(dogAge);
     console.log( "Human Age = " + humanAge );
     document.getElementById("human-age").value = humanAge;
 });
@@ -181,12 +181,12 @@ document.getElementById("submit3").addEventListener("click", function(){
     console.log( "Mini Calculator" );
 
     // Get input values - Must convert string number to int numbers for math
-    var number1 = parseInt(document.getElementById("number1").value, 10);
-    var number2 = parseInt(document.getElementById("number2").value, 10);
-    var operator = document.getElementById("operator").value;
+    let number1 = parseInt(document.getElementById("number1").value, 10);
+    let number2 = parseInt(document.getElementById("number2").value, 10);
+    let operator = document.getElementById("operator").value;
 
     // Write output value
-    var result = calculate(number1, number2, operator);
+    let result = calculate(number1, number2, operator);
     console.log( "Expression: " + number1 + operator + number2 + "=" + result);
     document.getElementById("result").value = result;
 });
