@@ -1,3 +1,8 @@
+/* CCIS 2591-JavaScript, Spring 2017
+ * Cheryl Davis
+ *
+ * Version 1, before correction of ES5 to ES6
+
 /*
  * Problem 1
  * -------------------------------------------------------------------
@@ -5,9 +10,9 @@
  *   - takes a single input parameter
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
-
-
-
+function calculateMoonWeight(earthWeight){
+    return earthWeight * .17;
+}
 
 /*
  * Problem 2
@@ -21,7 +26,14 @@
  * FYI: This calculation is based on studies that indicate dogs, except maybe
  *      larger breeds, develop more quickly in the first two years of life.
  */
-
+function calculateDogHumanAge(dogAge, humanAge){
+    if (dogAge <= 2){
+       return humanAge = dogAge * 10.5;
+    }
+    else {
+        return humanAge = dogAge * 4;
+    }
+}
 
 
 
@@ -36,8 +48,19 @@
  *   - if the operator is "+" and the numbers 2 and 5, then return 7
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
-
-
+function calculate(number1, number2, operator, result){
+    if(operator == "+"){
+        return result = number1 + number2;
+    } else if(operator == "-"){
+        return result = number1 - number2;
+    } else if(operator == "*"){
+        return result = number1 * number2;
+    } else if(operator == "/"){
+        return result = number1 / number2;
+    } else if(operator == "%"){
+        return result = (number1/100) * number2;
+    }   
+}
 
 
 /*
@@ -49,7 +72,9 @@
  *
  * Note the reading shows how to get the length of a string.
  */
-
+function calculateStringLength(string, length) {
+    return length = string.length;
+}
 
 /*
  * Problem 4 setup
@@ -60,23 +85,26 @@
 // Clear result field on input focus
 document.getElementById("string").addEventListener("focus", function(){
     // Get the length form field and clear out the value
-
+    document.getElementById("length").value = "";
 });
 
 // Setup button click to call function and update output field
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
+    console.log( "Calculating String Length" );
 
 
     // Get the input value from the form & log the value
-
+    var wordString = document.getElementById("string").value;
+    console.log( "String = " + wordString );
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
-
+    var stringLength = calculateStringLength(wordString);
+    console.log( "String Length = " + stringLength );
 
     // Use the variable to set the output form field value & log the result to the console
-
+    document.getElementById("length").value = stringLength;
 
 });
 
