@@ -6,7 +6,9 @@
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
 
-
+function calculateMoonWeight(earthWeightLbs) {
+    return Math.round(earthWeightLbs * 0.17);
+}
 
 
 /*
@@ -22,7 +24,18 @@
  *      larger breeds, develop more quickly in the first two years of life.
  */
 
-
+function calculateDogHumanAge(dogAgeYrs) {
+    let humanAge = 0
+    if (dogAgeYrs <= 2) {
+        humanAge = dogAgeYrs * 10.5;
+    }
+    else {
+        humanAge += 21;
+        dogAgeYrs -= 2;
+        humanAge += dogAgeYrs * 4;
+    }
+    return humanAge;
+}
 
 
 /*
@@ -37,7 +50,22 @@
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
 
-
+function calculate(number1, number2, operator) {
+    switch(operator) {
+        case '+':
+            return number1 + number2;
+        case '-':
+            return number1 - number2;
+        case '/':
+            return number1 / number2;
+        case '*':
+            return number1 * number2;
+        case '%':
+            return number1 % number2;
+        default:
+            return "Invalid Operator Input";
+    }
+}
 
 
 /*
@@ -50,6 +78,9 @@
  * Note the reading shows how to get the length of a string.
  */
 
+function calculateStringLength(inputString) {
+    return inputString.length;
+}
 
 /*
  * Problem 4 setup
@@ -66,17 +97,21 @@ document.getElementById("string").addEventListener("focus", function(){
 // Setup button click to call function and update output field
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
+    console.log( "Calculating String Length" );
 
 
     // Get the input value from the form & log the value
-
+    let inputString = document.getElementById("string").value;
+    console.log( "String = " + inputString );
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
+    let stringLength = calculateStringLength(inputString);
 
 
     // Use the variable to set the output form field value & log the result to the console
-
+    console.log( "String Length = " + stringLength );
+    document.getElementById("length").value = stringLength;
 
 });
 
