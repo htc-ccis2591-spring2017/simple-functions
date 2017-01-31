@@ -7,6 +7,13 @@
  */
 
 
+function calculateMoonWeight(earthWeight) {
+    
+    moonWeight=earthWeight*(.17);
+    return moonWeight;
+    
+};
+
 
 
 /*
@@ -23,6 +30,18 @@
  */
 
 
+function calculateDogHumanAge(dogAge) {
+    
+  
+    if (dogAge < 2) {
+        
+        return ((dogAge)*(10.5))
+    }
+    else {return (((dogAge - 2)*4)+21)};
+    
+    
+};
+
 
 
 /*
@@ -37,6 +56,13 @@
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
 
+function calculate(number1, number2, operator) {
+    
+    total= eval(number1 + operator + number2);
+    return total;
+    
+}
+
 
 
 
@@ -50,6 +76,15 @@
  * Note the reading shows how to get the length of a string.
  */
 
+function calculateStringLength(stringValue) {
+    
+    return stringValue.length
+    
+}
+
+
+
+
 
 /*
  * Problem 4 setup
@@ -60,23 +95,29 @@
 // Clear result field on input focus
 document.getElementById("string").addEventListener("focus", function(){
     // Get the length form field and clear out the value
-
+    document.getElementById("length").value = "";
 });
 
 // Setup button click to call function and update output field
+
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
-
+    console.log("Determining number of characters in the word...");
 
     // Get the input value from the form & log the value
-
+    
+    var stringValue = document.getElementById("string").value;
+    console.log("The word you entered is: " + stringValue );
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
 
+    var stringLength = calculateStringLength(stringValue);
 
     // Use the variable to set the output form field value & log the result to the console
-
+    
+    console.log("Here is the number of letters in your word: " + stringLength);
+    document.getElementById("length").value = stringLength;
 
 });
 
