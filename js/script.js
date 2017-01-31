@@ -5,8 +5,12 @@
  *   - takes a single input parameter
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
-
-
+    
+    function calculateMoonWeight(earthWeight) {
+        'use strict';
+        return (earthWeight)*.17;
+        
+    }
 
 
 /*
@@ -22,7 +26,77 @@
  *      larger breeds, develop more quickly in the first two years of life.
  */
 
-
+    function calculateDogHumanAge(dogAge){
+        var humanArr = [10.5,10.5,14.5,18.5,22.5,26.5,30.5,34.5,38.5,42.5,46.5,50.5,54.5,58.5,62.5,66.5];
+        if(dogAge == 1)
+            {
+                return humanArr[0];
+            }
+        else if(dogAge == 2)
+            {
+                return humanArr[1];
+            }
+        else if(dogAge == 3)
+            {
+                return humanArr[2];
+            }
+        else if(dogAge == 4)
+            {
+                return humanArr[3];
+            }
+        else if(dogAge == 5)
+            {
+                return humanArr[4];
+            }
+        else if(dogAge == 6)
+            {
+                return humanArr[5];
+            }
+        else if(dogAge == 7)
+            {
+                return humanArr[6];
+            }
+        else if(dogAge == 8)
+            {
+                return humanArr[7];
+            }
+        else if(dogAge == 9)
+            {
+                return humanArr[8];
+            }
+        else if(dogAge == 10)
+            {
+                return humanArr[9];
+            }
+        else if(dogAge == 11)
+            {
+                return humanArr[10];
+            }
+        else if(dogAge == 12)
+            {
+                return humanArr[11];
+            }
+        else if(dogAge == 13)
+            {
+                return humanArr[12];
+            }
+        else if(dogAge == 14)
+            {
+                return humanArr[13];
+            }
+        else if(dogAge == 15)
+            {
+                return humanArr[14];
+            }
+        else if(dogAge == 16)
+            {
+                return humanArr[15];
+            }
+        else
+        {
+            return "Error";
+        }
+    }
 
 
 /*
@@ -36,7 +110,34 @@
  *   - if the operator is "+" and the numbers 2 and 5, then return 7
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
-
+    
+    function calculate(number1, number2, operator){
+        
+        if(operator == "+")
+            {
+                return number1 + number2;
+            }
+        else if(operator == "-")
+        {
+            return number1 - number2;
+        }
+        else if(operator == "/")
+        {
+            return number1 / number2;
+        }
+        else if(operator == "*")
+        {
+            return number1 * number2;
+        }
+        else if(operator == "%")
+        {
+            return number1 % number2;
+        }
+        else
+        {
+            return "Incorect Operator"
+        }
+    }
 
 
 
@@ -49,7 +150,10 @@
  *
  * Note the reading shows how to get the length of a string.
  */
-
+    function charLeng(wordVal){
+        
+        return wordVal.length;
+    }
 
 /*
  * Problem 4 setup
@@ -66,17 +170,20 @@ document.getElementById("string").addEventListener("focus", function(){
 // Setup button click to call function and update output field
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
-
-
+        console.log("Calculating length of strings")
+        
     // Get the input value from the form & log the value
-
+        var wordVal = document.getElementById("string").value;
+        console.log("Your word is: " + wordVal);
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
-
-
+        var wordStr = charLeng(wordVal);
+        
+    
     // Use the variable to set the output form field value & log the result to the console
-
+        document.getElementById("length").value = wordStr;
+    console.log("Total string length is: "+wordStr)
 
 });
 
