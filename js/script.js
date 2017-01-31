@@ -5,7 +5,9 @@
  *   - takes a single input parameter
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
-
+function calculateMoonWeight(weight) {
+    return weight * 0.17 ;
+}
 
 
 
@@ -22,7 +24,15 @@
  *      larger breeds, develop more quickly in the first two years of life.
  */
 
+ function calculateDogHumanAge(dogAge) {
+     if (dogAge <= 2) {
+         return dogAge * 10.5;
+     }
+     else {
+         return (dogAge * 4) + (21 - 8);
+     }
 
+ }
 
 
 /*
@@ -36,7 +46,23 @@
  *   - if the operator is "+" and the numbers 2 and 5, then return 7
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
-
+function calculate(num1, num2, operator) {
+    if (operator == "+") {
+        return num1 + num2;
+    }
+    else if (operator == "-") {
+        return num1 - num2;
+    }
+    else if (operator == "/") {
+        return num1 / num2;
+    }
+    else if (operator == "*") {
+        return num1 * num2;
+    }
+    else {
+        return num1 % num2;
+    }
+}
 
 
 
@@ -49,7 +75,9 @@
  *
  * Note the reading shows how to get the length of a string.
  */
-
+function stringLength(string) {
+    return string.length;
+}
 
 /*
  * Problem 4 setup
@@ -60,23 +88,24 @@
 // Clear result field on input focus
 document.getElementById("string").addEventListener("focus", function(){
     // Get the length form field and clear out the value
-
+    document.getElementById("length").value = "";
 });
 
 // Setup button click to call function and update output field
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
-
+    console.log( "Calculating Word Length" );
 
     // Get the input value from the form & log the value
-
-
+    let string = document.getElementById("string").value;
+    console.log( "String = " + string );
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
-
+    let length = stringLength(string);
 
     // Use the variable to set the output form field value & log the result to the console
-
+    console.log( "String Length = " + length );
+    document.getElementById("length").value = length;
 
 });
 
@@ -103,11 +132,11 @@ document.getElementById("submit1").addEventListener("click", function(){
     console.log( "Calculating Moon Weight" );
 
     // Get input value
-    var earthWeight = document.getElementById("weight").value;
+    let earthWeight = document.getElementById("weight").value;
     console.log( "Earth Weight = " + earthWeight );
 
     // Write output value
-    var moonWeight = calculateMoonWeight(earthWeight);
+    let moonWeight = calculateMoonWeight(earthWeight);
     console.log( "Moon Weight = " + moonWeight );
     document.getElementById("moon-weight").value = moonWeight;
 });
@@ -125,11 +154,11 @@ document.getElementById("submit2").addEventListener("click", function(){
     console.log( "Calculating Dog's Human Age" );
 
     // Get input value
-    var dogAge = document.getElementById("dog-age").value;
+    let dogAge = document.getElementById("dog-age").value;
     console.log( "Dog's Age = " + dogAge );
 
     // Write output value
-    var humanAge = calculateDogHumanAge(dogAge);
+    let humanAge = calculateDogHumanAge(dogAge);
     console.log( "Human Age = " + humanAge );
     document.getElementById("human-age").value = humanAge;
 });
@@ -153,12 +182,12 @@ document.getElementById("submit3").addEventListener("click", function(){
     console.log( "Mini Calculator" );
 
     // Get input values - Must convert string number to int numbers for math
-    var number1 = parseInt(document.getElementById("number1").value, 10);
-    var number2 = parseInt(document.getElementById("number2").value, 10);
-    var operator = document.getElementById("operator").value;
+    let number1 = parseInt(document.getElementById("number1").value, 10);
+    let number2 = parseInt(document.getElementById("number2").value, 10);
+    let operator = document.getElementById("operator").value;
 
     // Write output value
-    var result = calculate(number1, number2, operator);
+    let result = calculate(number1, number2, operator);
     console.log( "Expression: " + number1 + operator + number2 + "=" + result);
     document.getElementById("result").value = result;
 });
