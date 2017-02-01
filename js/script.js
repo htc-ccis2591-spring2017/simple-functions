@@ -6,7 +6,11 @@
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
 
-
+function calculateMoonWeight (earthWeight)
+{
+   moonWeight = earthWeight * .17;
+   return moonWeight;
+}
 
 
 /*
@@ -21,7 +25,20 @@
  * FYI: This calculation is based on studies that indicate dogs, except maybe
  *      larger breeds, develop more quickly in the first two years of life.
  */
-
+function calculateDogHumanAge (dogAge)
+{
+   if (dogAge === 1 || 2)
+       {
+           humanAge = dogAge * 10.5;
+       }
+    if (dogAge > 2)
+        {
+            //subtract 2 years and add 21 dog years for anything over 2
+            dogAge = dogAge - 2;
+            humanAge = dogAge * 4 + 21;
+        }
+    return humanAge;
+}
 
 
 
@@ -37,7 +54,13 @@
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
 
-
+function calculate (number1, number2, operator)
+{
+    
+    result = number1 + operator + number2;
+    return eval(result);
+    //number1, number2, operator
+}
 
 
 /*
@@ -51,6 +74,12 @@
  */
 
 
+function wordCount (word)
+{
+    length = word.length;
+    return length;
+}
+
 /*
  * Problem 4 setup
  * -------------------------------------------------------------------
@@ -58,25 +87,29 @@
  * Follow their example, and modify it to complete this setup code
  */
 // Clear result field on input focus
+
 document.getElementById("string").addEventListener("focus", function(){
     // Get the length form field and clear out the value
-
+    document.getElementById("length").value = "";
 });
 
 // Setup button click to call function and update output field
 document.getElementById("submit4").addEventListener("click", function(){
     //Log a message for your function
-
-
+    
+    console.log("Checking word length.")
+    
     // Get the input value from the form & log the value
 
+    var word = document.getElementById("string").value;
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
-
-
+   var returnedValue = wordCount(word) ;
+    
     // Use the variable to set the output form field value & log the result to the console
-
+    console.log("The returned value is: " + returnedValue);
+    document.getElementById("length").value = returnedValue;
 
 });
 
