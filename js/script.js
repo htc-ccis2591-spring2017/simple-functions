@@ -5,7 +5,9 @@
  *   - takes a single input parameter
  *   - returns the equivalent weight on the moon (17% of earth weight)
  */
-
+function calculateMoonWeight(earthWeight) {
+    return earthWeight * 0.17;
+}
 
 
 
@@ -21,7 +23,16 @@
  * FYI: This calculation is based on studies that indicate dogs, except maybe
  *      larger breeds, develop more quickly in the first two years of life.
  */
-
+function calculateDogHumanAge(dogYears) {
+    let humanAge = 0
+    if (dogYears <= 2) {
+        humanAge = dogYears * 10.5;
+    } else {
+        humanAge += 21;
+        humanAge += ((dogYears -= 2) * 4);
+    }
+    return humanAge;
+}
 
 
 
@@ -36,7 +47,22 @@
  *   - if the operator is "+" and the numbers 2 and 5, then return 7
  *   - if the operator is "*" and the numbers 2 and 5, then return 10
  */
-
+function calculate(num1, num2, operator) {
+    switch (operator) {
+    case '+':
+        return num1 + num2;
+    case '-':
+        return num1 - num2;
+    case '*':
+        return num1 * num2;
+    case '/':
+        return num1 / num2;
+    case '%':
+        return num1 % num2;
+    default:
+        return "Error, Does Not Compute!"
+    }
+}
 
 
 
@@ -49,7 +75,9 @@
  *
  * Note the reading shows how to get the length of a string.
  */
-
+function calcStrLen(inputString) {
+    return inputString.length;
+}
 
 /*
  * Problem 4 setup
@@ -58,24 +86,30 @@
  * Follow their example, and modify it to complete this setup code
  */
 // Clear result field on input focus
-document.getElementById("string").addEventListener("focus", function(){
+document.getElementById("string").addEventListener("focus", function () {
     // Get the length form field and clear out the value
 
 });
 
 // Setup button click to call function and update output field
-document.getElementById("submit4").addEventListener("click", function(){
+document.getElementById("submit4").addEventListener("click", function () {
     //Log a message for your function
+    console.log("Calculating the length of the string.");
 
 
     // Get the input value from the form & log the value
+    let inputString = document.getElementById("string").value;
+    console.log(inputString + " was input into the box");
 
 
     // Call your function that you defined above and pass in the input value
     // Save the returned value as a variable
+    let strLen = calcStrLen(inputString);
 
 
     // Use the variable to set the output form field value & log the result to the console
+    document.getElementById("length").value = strLen;
+    console.log("The string is " + strLen + " characters long");
 
 
 });
@@ -88,27 +122,27 @@ document.getElementById("submit4").addEventListener("click", function(){
  *
  **********************************************/
 assignmentName = "HW2 - Logic & Functions"
-console.log( assignmentName );
+console.log(assignmentName);
 console.log();
 
 // Problem 1 setup
 //-----------------------------------
 // Clear result field on input focus
-document.getElementById("weight").addEventListener("focus", function(){
+document.getElementById("weight").addEventListener("focus", function () {
     document.getElementById("moon-weight").value = "";
 });
 
 // Setup button click to call function and update output field
-document.getElementById("submit1").addEventListener("click", function(){
-    console.log( "Calculating Moon Weight" );
+document.getElementById("submit1").addEventListener("click", function () {
+    console.log("Calculating Moon Weight");
 
     // Get input value
     var earthWeight = document.getElementById("weight").value;
-    console.log( "Earth Weight = " + earthWeight );
+    console.log("Earth Weight = " + earthWeight);
 
     // Write output value
     var moonWeight = calculateMoonWeight(earthWeight);
-    console.log( "Moon Weight = " + moonWeight );
+    console.log("Moon Weight = " + moonWeight);
     document.getElementById("moon-weight").value = moonWeight;
 });
 
@@ -116,21 +150,21 @@ document.getElementById("submit1").addEventListener("click", function(){
 // Problem 2 setup
 //-----------------------------------
 // Clear result field on input focus
-document.getElementById("dog-age").addEventListener("focus", function(){
+document.getElementById("dog-age").addEventListener("focus", function () {
     document.getElementById("human-age").value = "";
 });
 
 // Setup button click to call function and update output field
-document.getElementById("submit2").addEventListener("click", function(){
-    console.log( "Calculating Dog's Human Age" );
+document.getElementById("submit2").addEventListener("click", function () {
+    console.log("Calculating Dog's Human Age");
 
     // Get input value
     var dogAge = document.getElementById("dog-age").value;
-    console.log( "Dog's Age = " + dogAge );
+    console.log("Dog's Age = " + dogAge);
 
     // Write output value
     var humanAge = calculateDogHumanAge(dogAge);
-    console.log( "Human Age = " + humanAge );
+    console.log("Human Age = " + humanAge);
     document.getElementById("human-age").value = humanAge;
 });
 
@@ -138,19 +172,19 @@ document.getElementById("submit2").addEventListener("click", function(){
 // Problem 3 setup
 //-----------------------------------
 // Clear result field on input focus
-document.getElementById("number1").addEventListener("focus", function(){
+document.getElementById("number1").addEventListener("focus", function () {
     document.getElementById("result").value = "";
 });
-document.getElementById("number2").addEventListener("focus", function(){
+document.getElementById("number2").addEventListener("focus", function () {
     document.getElementById("result").value = "";
 });
-document.getElementById("operator").addEventListener("focus", function(){
+document.getElementById("operator").addEventListener("focus", function () {
     document.getElementById("result").value = "";
 });
 
 // Setup button click to call function and update output field
-document.getElementById("submit3").addEventListener("click", function(){
-    console.log( "Mini Calculator" );
+document.getElementById("submit3").addEventListener("click", function () {
+    console.log("Mini Calculator");
 
     // Get input values - Must convert string number to int numbers for math
     var number1 = parseInt(document.getElementById("number1").value, 10);
@@ -159,6 +193,6 @@ document.getElementById("submit3").addEventListener("click", function(){
 
     // Write output value
     var result = calculate(number1, number2, operator);
-    console.log( "Expression: " + number1 + operator + number2 + "=" + result);
+    console.log("Expression: " + number1 + operator + number2 + "=" + result);
     document.getElementById("result").value = result;
 });
